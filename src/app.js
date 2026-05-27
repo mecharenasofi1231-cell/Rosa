@@ -13,7 +13,21 @@ import { checkBirthdays } from './services/birthdayService.js';
 import { checkGiveaways } from './services/giveawayService.js';
 import { loadCommands, registerCommands as registerSlashCommands } from './handlers/commandLoader.js';
 
-class TitanBot extends Client {
+class TitanBot extends Client {client.on('messageCreate', async message => {
+    if (message.author.bot) return;
+
+    const msg = message.content.toLowerCase();
+
+    // MA Calculator
+    if (msg === 'ma calculator') {
+        message.channel.send('🔢 MA Calculator: https://mecharena.infohubhq.in/');
+    }
+
+    // MA Store
+    if (msg === 'ma store') {
+        message.channel.send('🛒 MA Store: https://store.plarium.com/en/mech-arena/');
+    }
+});
   constructor() {
     super({
       intents: [
